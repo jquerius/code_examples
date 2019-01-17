@@ -25,7 +25,6 @@ LEFT JOIN BillPayments bp ON bp.EntryID = ledgerEntry.EntryID
     AND bp.BillPaymentType = @billComponentType
 
 -- Bills are from one account to another, can't be to the same account 
--- Lookup
 WHERE ledgerEntry.CustomerID = @adminCustDataID
     AND ledgerEntry.RemovedDate IS NULL
     AND ledgerEntry.DateEntered < @date
