@@ -13,23 +13,22 @@ namespace library
         public Boolean areAnagrams(string a, string b) {
 
             if(a.Length != b.Length) return false;
-
-            var aChars = new List<char>(a.ToCharArray());
-            var bChars = new LinkedList<char>(b.ToCharArray());
-
-            for(var i = 0; i < aChars.Count; i++) {
-                var bNode = bChars.Find(aChars[i]);
-                if(bNode != null) 
-                {
-                    bChars.Remove(bNode);
-                }
-                else
-                {
-                    return false; 
-                }
+            var frequency = new Dictionary<char, int>();
+            
+            foreach(var c in a.ToCharArray()) {
+                int f;
+                frequency.TryGetValue(c, out f);
+                frequency[c] = ++f;
             }
 
-            return bChars.Count == 0; 
+            foreach(var c in b.ToCharArray()) {
+                int f;
+                frequency.TryGetValue(c, out f);
+                f++;
+                if(f % 2 != 0) return false;
+            }
+
+            return true; 
         }
     }
 
