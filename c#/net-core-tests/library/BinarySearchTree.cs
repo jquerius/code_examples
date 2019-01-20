@@ -5,9 +5,8 @@ using System.Linq;
 namespace library
 {
 
-    public class BinarySearchTree : IBinarySearchTree 
+    public class BinarySearchTree : IBinarySearchTree
     {
-        private int v;
 
         Node root { get; set; }
 
@@ -75,18 +74,19 @@ namespace library
             }
         }
 
-        
-        public int GetTreeHeight() {
+
+        public int GetTreeHeight()
+        {
             return GetTreeHeight(this.root);
         }
 
-        private int GetTreeHeight(Node n) 
+        private int GetTreeHeight(Node n)
         {
             // If no node passed in, no height 
-            if(n == null) return 0;
+            if (n == null) return 0;
 
             // If this is a leaf node, return 1
-            else if(n.left == null && n.right == null) return 1;
+            else if (n.left == null && n.right == null) return 1;
 
             var leftDepth = GetTreeHeight(n.left);
             var rightDepth = GetTreeHeight(n.right);
@@ -101,27 +101,29 @@ namespace library
             var height = GetTreeHeight(this.root);
 
             // Level-order print the current tree
-            for(var i = 0; i < height; i++) {
+            for (var i = 0; i < height; i++)
+            {
                 PrintTree(this.root, i);
                 Console.Write("\n");
-
             }
 
         }
 
-        private void PrintTree(Node n, int level) {
+        private void PrintTree(Node n, int level)
+        {
             // Nothing to print!
-            if(n == null) return;
+            if (n == null) return;
             // This is the lowest level, we should print it 
-            if(level == 0)
+            if (level == 0)
                 Console.Write(n.value + " ");
             // Keep going down to the lowest level we can,
             // where we will then print the data 
-            else if(level > 0) {
+            else if (level > 0)
+            {
                 PrintTree(n.left, level - 1);
                 PrintTree(n.right, level - 1);
             }
-            
+
         }
     }
 

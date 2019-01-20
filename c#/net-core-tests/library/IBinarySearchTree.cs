@@ -1,8 +1,10 @@
 using static library.Node;
 
 
-namespace library {
-    public interface IBinarySearchTree {
+namespace library
+{
+    public interface IBinarySearchTree
+    {
 
         /// <summary>
         /// Get the total depth of the tree.
@@ -22,6 +24,6 @@ namespace library {
         /// <param name="value"></param>
         void Add(int value);
 
-    
+
     }
 }
