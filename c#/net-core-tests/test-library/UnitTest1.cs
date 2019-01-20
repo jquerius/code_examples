@@ -8,12 +8,12 @@ namespace test_library
     {
         [Fact]
         public void TestAnagram() {
-            Assert.True(new Thing().areAnagrams("cinema", "iceman"));
+            Assert.True(new AnagramEval().areAnagrams("cinema", "iceman"));
         }
         
         [Fact]
         public void TestBinarySearchTree() {
-            var tree = new BST(10);
+            var tree = new BinarySearchTree(10);
             tree.Add(5);
             tree.Add(11);
             tree.PrintTree();
